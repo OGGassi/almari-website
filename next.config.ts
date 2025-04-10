@@ -1,10 +1,14 @@
 // @ts-check
-const { i18n } = require('./next-i18next.config');
+import { fileURLToPath } from 'url';
+import path from 'path';
+import i18nConfig from './next-i18next.config.mjs';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  i18n,
+  i18n: i18nConfig.i18n,
   images: {
     domains: [
       'scontent.cdninstagram.com',
@@ -33,4 +37,4 @@ const nextConfig = {
   swcMinify: true,
 };
 
-module.exports = nextConfig;
+export default nextConfig;
